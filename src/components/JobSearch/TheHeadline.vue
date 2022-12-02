@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="mb-16">
     <h1 class="ta mb-14 text-9xl font-bold tracking-tighter">
       <span :class="actionClasses">{{ action }}</span
       ><br />
