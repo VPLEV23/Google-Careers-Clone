@@ -1,21 +1,28 @@
 import { createPinia, setActivePinia } from "pinia";
-import { useUserStore } from "../../../src/stores/user";
 
-describe("stae", () => {
+import { useUserStore } from "@/stores/user";
+
+describe("state", () => {
   beforeEach(() => {
     setActivePinia(createPinia());
   });
-  it("keeps track or if user loged in", () => {
-    const store = useUserStore;
+
+  it("keeps track of if user is logged in", () => {
+    const store = useUserStore();
     expect(store.isLoggedIn).toBe(false);
   });
 });
 
-describe("action", () => {
-  it("loginUser", () => {
-    const store = useUserStore();
-    store.loginUser();
-    expect;
-    store.isLoggedIn.toBe(true);
+describe("actions", () => {
+  beforeEach(() => {
+    setActivePinia(createPinia());
+  });
+
+  describe("loginUser", () => {
+    it("logs the user in", () => {
+      const store = useUserStore();
+      store.loginUser();
+      expect(store.isLoggedIn).toBe(true);
+    });
   });
 });
