@@ -9,8 +9,7 @@
           <ActionButtonVue text="Clear Filters" type="secondary" />
         </div>
       </div>
-      <CollapsibleAccordionVue header="Job Types"> </CollapsibleAccordionVue>
-
+      <JobFilterSidebarJobTypesVue />
       <JobFilterSidebarOrganization />
     </section>
   </div>
@@ -19,13 +18,13 @@ Vue
 <script>
 import ActionButtonVue from "../../Shared/ActionButton.vue";
 import JobFilterSidebarOrganization from "./JobFilterSidebarOrganization.vue";
-import CollapsibleAccordionVue from "../../Shared/CollapsibleAccordion.vue";
+import JobFilterSidebarJobTypesVue from "./JobFilterSidebarJobTypes.vue";
 export default {
   name: "JobSideBar",
   components: {
     ActionButtonVue,
-    CollapsibleAccordionVue,
     JobFilterSidebarOrganization,
+    JobFilterSidebarJobTypesVue,
   },
 };
 </script>

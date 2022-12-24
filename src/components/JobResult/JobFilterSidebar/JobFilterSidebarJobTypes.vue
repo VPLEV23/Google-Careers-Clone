@@ -1,18 +1,18 @@
 <template>
-  <CollapsibleAccordionVue header="Organization">
+  <CollapsibleAccordionVue header="Job Types">
     <div class="mt-5">
       <fieldset>
         <ul class="flex flex-row flex-wrap">
-          <li v-for="org in UNIQUE_ORGANIZATIONS" :key="org" class="h-8 w-1/2">
+          <li v-for="job in UNIQUE_JOB_TYPES" :key="job" class="h-8 w-1/2">
             <input
-              :id="org"
-              v-model="selectedOrg"
-              :value="org"
+              :id="job"
+              v-model="selectedjobTypes"
+              :value="job"
               type="checkbox"
               class="mr-3"
-              @change="selectOrg"
+              @change="selectedTypes"
             />
-            <label :for="org">{{ org }}</label>
+            <label :for="org">{{ job }}</label>
           </li>
         </ul>
       </fieldset>
@@ -22,8 +22,8 @@
 
 <script>
 import { mapActions, mapState } from "pinia";
-import { useJobsStore, UNIQUE_ORGANIZATIONS } from "../../../stores/jobs";
-import { useUserStore, ADD_SELECTED_ORGANIZATION } from "../../../stores/user";
+import { useJobsStore, UNIQUE_JOB_TYPES } from "../../../stores/jobs";
+import { useUserStore, ADD_SELECTED_JOB_TYPES } from "../../../stores/user";
 import CollapsibleAccordionVue from "../../Shared/CollapsibleAccordion.vue";
 export default {
   name: "JobFilterSidebarOrganization",
@@ -32,16 +32,16 @@ export default {
   },
   data() {
     return {
-      selectedOrg: [],
+      selectedjobTypes: [],
     };
   },
   computed: {
-    ...mapState(useJobsStore, [UNIQUE_ORGANIZATIONS]),
+    ...mapState(useJobsStore, [UNIQUE_JOB_TYPES]),
   },
   methods: {
-    ...mapActions(useUserStore, [ADD_SELECTED_ORGANIZATION]),
-    selectOrg() {
-      this.ADD_SELECTED_ORGANIZATION(this.selectedOrg);
+    ...mapActions(useUserStore, [ADD_SELECTED_JOB_TYPES]),
+    selectedTypes() {
+      this.ADD_SELECTED_JOB_TYPES(this.selectedjobTypes);
       this.$router.push({ name: "JobResult" });
     },
   },

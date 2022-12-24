@@ -31,11 +31,7 @@
 import { mapActions, mapState } from "pinia";
 import JonListingVue from "./JonListing.vue";
 
-import {
-  useJobsStore,
-  FETCH_JOBS,
-  FILTERED_JOBS_BY_ORGANIZATIONS,
-} from "@/stores/jobs";
+import { useJobsStore, FETCH_JOBS, FILTER_JOBS } from "@/stores/jobs";
 
 export default {
   name: "JobListings",
@@ -52,20 +48,17 @@ export default {
       return prevPage >= firstPage ? prevPage : undefined;
     },
     ...mapState(useJobsStore, {
-      FILTERED_JOBS_BY_ORGANIZATIONS,
+      FILTER_JOBS,
       nextPage() {
         const nextPage = this.currentPage + 1;
-        const maxPage = this.FILTERED_JOBS_BY_ORGANIZATIONS.length / 10;
+        const maxPage = this.FILTER_JOBS.length / 10;
         return nextPage <= maxPage ? nextPage : undefined;
       },
       displayedJobs() {
         const pageNumber = this.currentPage;
         const firstJobIndex = (pageNumber - 1) * 10;
         const lastJobIndex = pageNumber * 10;
-        return this.FILTERED_JOBS_BY_ORGANIZATIONS.slice(
-          firstJobIndex,
-          lastJobIndex
-        );
+        return this.FILTER_JOBS.slice(firstJobIndex, lastJobIndex);
       },
     }),
   },
