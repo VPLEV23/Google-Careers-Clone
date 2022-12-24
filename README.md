@@ -1,6 +1,6 @@
 # Google Careers Clone
 
-This template should help get you started developing with Vue 3 in Vite.
+This is clone of Google Careers WebSite. Done With VUE3 Pini Tailwind.
 
 ## Recommended IDE Setup
 
