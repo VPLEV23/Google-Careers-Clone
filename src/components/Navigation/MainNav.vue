@@ -26,7 +26,7 @@
         </nav>
         <div class="ml-auto flex h-full items-center">
           <ProfileImage v-if="isLoggedIn" />
-          <ActionButton v-else text="Sign In" @click="loginUser" />
+          <ActionButton v-else text="Sign In" @click="LOGIN_USER" />
         </div>
       </div>
       <sub-nav v-if="isLoggedIn" />
@@ -50,7 +50,7 @@ const menuItems = ref([
   { text: "Jobs", url: "/jobs/result" },
 ]);
 const userStore = useUserStore();
-const loginUser = userStore.loginUser;
+const LOGIN_USER = userStore.LOGIN_USER;
 const isLoggedIn = computed(() => userStore.isLoggedIn);
 
 const headerHeightClass = computed(() => {
