@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from "vue";
 defineProps({
   header: {
@@ -33,6 +33,4 @@ const carretIcon = computed(() =>
 const open = () => {
   isOpen.value = !isOpen.value;
 };
-
-// return { open, isOpen, carretIcon };
 </script>

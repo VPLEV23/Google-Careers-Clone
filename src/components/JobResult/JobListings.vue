@@ -27,7 +27,7 @@
   </main>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { computed, onMounted } from "vue";
 import JonListingVue from "./JonListing.vue";
 import { useRoute } from "vue-router";
@@ -40,7 +40,9 @@ const route = useRoute();
 
 const FILTER_JOBS = computed(() => jobsStore.FILTER_JOBS);
 const maxPage = computed(() => Math.ceil(FILTER_JOBS.value.length / 10));
-const currentPage = computed(() => Number.parseInt(route.query.page || "1"));
+const currentPage = computed(() =>
+  Number.parseInt((route.query.page as string) || "1")
+);
 
 const { nextPage, prevPage } = usePreviusandNextPage(currentPage, maxPage);
 

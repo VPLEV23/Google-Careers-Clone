@@ -12,7 +12,7 @@
               class="mr-3"
               @change="selectValue"
             />
-            <label :for="org">{{ value }}</label>
+            <label :for="value">{{ value }}</label>
           </li>
         </ul>
       </fieldset>
@@ -20,7 +20,7 @@
   </CollapsibleAccordionVue>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -32,7 +32,7 @@ const props = defineProps({
     required: true,
   },
   uniqValue: {
-    type: Set,
+    type: Set<string>,
     required: true,
   },
   action: {
@@ -41,7 +41,7 @@ const props = defineProps({
   },
 });
 const router = useRouter();
-const selectedValues = ref([]);
+const selectedValues = ref<string[]>([]);
 
 const selectValue = () => {
   props.action(selectedValues.value);

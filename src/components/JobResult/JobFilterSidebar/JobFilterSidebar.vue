@@ -24,7 +24,7 @@
   </div>
 </template>
 Vue
-<script setup>
+<script lang="ts" setup>
 import { computed } from "vue";
 import ActionButtonVue from "../../Shared/ActionButton.vue";
 import JobFilterSidebarCheckboxGroup from "./JobFilterSidebarCheckboxGroup.vue";
