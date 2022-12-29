@@ -32,7 +32,7 @@ const props = defineProps({
     required: true,
   },
   uniqValue: {
-    type: Set<string>,
+    type: [Set<string>, Array<string>],
     required: true,
   },
   action: {

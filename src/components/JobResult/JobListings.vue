@@ -33,12 +33,16 @@ import JonListingVue from "./JonListing.vue";
 import { useRoute } from "vue-router";
 import usePreviusandNextPage from "@/composables/usePreviusAndNextPage";
 import { useJobsStore } from "@/stores/jobs";
+import { useDegreeStore } from "@/stores/degrees";
 
 const jobsStore = useJobsStore();
 onMounted(jobsStore.FETCH_JOBS);
 const route = useRoute();
+const degreeStore = useDegreeStore();
+onMounted(degreeStore.FETCH_DEGREES);
 
 const FILTER_JOBS = computed(() => jobsStore.FILTER_JOBS);
+
 const maxPage = computed(() => Math.ceil(FILTER_JOBS.value.length / 10));
 const currentPage = computed(() =>
   Number.parseInt((route.query.page as string) || "1")

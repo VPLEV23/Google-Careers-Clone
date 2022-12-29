@@ -9,7 +9,11 @@
           <ActionButtonVue text="Clear Filters" type="secondary" />
         </div>
       </div>
-
+      <JobFilterSidebarCheckboxGroup
+        header="Degrees"
+        :uniq-value="UNIQ_DEGREES"
+        :action="userStore.ADD_SELECTED_DEGEES"
+      />
       <JobFilterSidebarCheckboxGroup
         header="Job Types"
         :uniq-value="UNIQUE_JOB_TYPES"
@@ -29,12 +33,13 @@ import { computed } from "vue";
 import ActionButtonVue from "../../Shared/ActionButton.vue";
 import JobFilterSidebarCheckboxGroup from "./JobFilterSidebarCheckboxGroup.vue";
 import { useUserStore } from "../../../stores/user";
-
+import { useDegreeStore } from "@/stores/degrees";
 import { useJobsStore } from "../../../stores/jobs";
 
 const jobsStore = useJobsStore();
+const degreeStore = useDegreeStore();
 const UNIQUE_ORGANIZATIONS = computed(() => jobsStore.UNIQUE_ORGANIZATIONS);
 const UNIQUE_JOB_TYPES = computed(() => jobsStore.UNIQUE_JOB_TYPES);
-
+const UNIQ_DEGREES = computed(() => degreeStore.UNIQ_DEGREES);
 const userStore = useUserStore();
 </script>
