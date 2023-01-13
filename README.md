@@ -1,6 +1,6 @@
 # Google Careers Clone
 
-This is clone of Google Careers WebSite. Done With VUE3 Pini Tailwind.
+This is clone of Google Careers WebSite. Done With VUE3 Pinia Tailwind CSS.
 
 ## Recommended IDE Setup
 
